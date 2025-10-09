@@ -143,7 +143,7 @@ fn display_about() {
 }
 
 fn show_help() {
-    println!("{}", "LegendaryOS CLI Tool - Available Commands".purple().bold());
+    println!("{}", "Legendary CLI Tool - Available Commands".purple().bold());
     println!("{}", "---------------------------------------".purple().underline());
     println!("{}", "help           - Show this help message".yellow().bold());
     println!("{}", "install <pkg>  - Install a package (falls back to yay)".yellow().bold());
