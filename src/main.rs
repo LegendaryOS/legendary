@@ -2,13 +2,12 @@ use clap::{Parser, Subcommand};
 use colored::*;
 use std::fs;
 use std::process::{Command, Stdio};
-use std::io::{self, Write};
 
 #[derive(Parser)]
 #[clap(
-    name = "legendary",
-    about = "A vibrant CLI tool for managing LegendaryOS with style".bold().cyan(),
-    version = "1.0.0"
+name = "legendary",
+about = "A vibrant CLI tool for managing LegendaryOS with style",
+version = "1.0.0"
 )]
 struct Cli {
     #[clap(subcommand)]
@@ -55,10 +54,10 @@ enum Commands {
 fn run_command(program: &str, args: &[&str]) -> bool {
     println!("{}", format!("Executing: {} {}", program, args.join(" ")).dimmed());
     let output = Command::new(program)
-        .args(args)
-        .stdout(Stdio::inherit())
-        .stderr(Stdio::inherit())
-        .output();
+    .args(args)
+    .stdout(Stdio::inherit())
+    .stderr(Stdio::inherit())
+    .output();
     match output {
         Ok(output) => {
             if output.status.success() {
@@ -143,7 +142,7 @@ fn display_about() {
 }
 
 fn show_help() {
-    println!("{}", "Legendary CLI Tool - Available Commands".purple().bold());
+    println!("{}", "LegendaryOS CLI Tool - Available Commands".purple().bold());
     println!("{}", "---------------------------------------".purple().underline());
     println!("{}", "help           - Show this help message".yellow().bold());
     println!("{}", "install <pkg>  - Install a package (falls back to yay)".yellow().bold());
