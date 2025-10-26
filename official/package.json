@@ -6,13 +6,33 @@
   "bin": {
     "legendary": "./index.js"
   },
+  "scripts": {
+    "start": "node index.js",
+    "build": "pkg . --targets node18-linux-x64 --output legendary"
+  },
   "dependencies": {
     "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.0"
+  },
+  "pkg": {
+    "scripts": [
+      "index.js"
+    ],
+    "assets": [
+      "assets/**/*"
+    ],
+    "targets": [
+      "node18-linux-x64"
+    ],
+    "outputPath": "dist"
   },
   "keywords": [
     "cli",
     "legendaryos",
-    "arch-linux"
+    "package-manager",
+    "linux"
   ],
   "author": "LegendaryOS Team",
   "license": "MIT"
