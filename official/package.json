@@ -1,8 +1,19 @@
-[package]
-name = "legendary"
-version = "1.0.0"
-edition = "2021"
-
-[dependencies]
-clap = { version = "4.5", features = ["derive"] }
-colored = "2.1"
+{
+  "name": "legendary",
+  "version": "1.0.0",
+  "description": "CLI tool for LegendaryOS package management",
+  "main": "index.js",
+  "bin": {
+    "legendary": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "keywords": [
+    "cli",
+    "legendaryos",
+    "arch-linux"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
