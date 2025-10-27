@@ -8,18 +8,21 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "pkg . --targets node20-linux-x64 --out-path dist && chmod +x dist/legendary"
+    "build": "pkg . --targets node18-linux-x64 --out-path dist && chmod +x dist/legendary"
   },
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^9.4.1"
   },
   "devDependencies": {
-    "pkg": "^5.8.0"
+    "pkg": "^5.8.1"
   },
   "pkg": {
+    "assets": [
+      "index.js"
+    ],
     "targets": [
-      "node20-linux-x64"
+      "node18-linux-x64"
     ],
     "outputPath": "dist"
   },
