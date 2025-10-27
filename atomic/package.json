@@ -1,1 +1,28 @@
-
+{
+  "name": "legendary",
+  "version": "1.0.0",
+  "description": "Transactional package manager inspired by openSUSE transactional-update, using Btrfs snapshots.",
+  "main": "index.js",
+  "bin": {
+    "legendary": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "pkg . --targets node20-linux-x64 --out-path dist && chmod +x dist/legendary"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^9.4.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.0"
+  },
+  "pkg": {
+    "targets": [
+      "node20-linux-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "author": "LegendaryOS Team",
+  "license": ""
+}
