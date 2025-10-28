@@ -3,12 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 
+const PACMAN_PATH = '/usr/lib/LegendaryOS/pacman';
+
 module.exports = () => {
   console.log(chalk.green('Cleaning old snapshots and pacman cache'));
 
   try {
     // Clean pacman cache
-    execSync('pacman -Scc --noconfirm');
+    execSync(`${PACMAN_PATH} -Scc --noconfirm`);
 
     // Clean old snapshots > 30 days
     const snapBase = '/var/lib/legendary/snapshots/';
