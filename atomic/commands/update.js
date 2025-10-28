@@ -5,6 +5,8 @@ const chalk = require('chalk');
 const { createSnapshot, prepareChroot, runInChroot, cleanupChroot, deploySnapshot } = require('../utils/btrfs');
 const { startProgress, stopProgress } = require('../utils/progress');
 
+const PACMAN_PATH = '/usr/lib/LegendaryOS/pacman';
+
 module.exports = () => {
   console.log(chalk.green('Updating all packages'));
 
@@ -21,7 +23,7 @@ module.exports = () => {
     // Start progress bar
     progressInterval = startProgress();
 
-    runInChroot(snapRoot, `pacman -Syu --noconfirm`);
+    runInChroot(snapRoot, `${PACMAN_PATH} -Syu --noconfirm`);
 
     stopProgress(progressInterval);
     cleanupChroot(snapRoot);
