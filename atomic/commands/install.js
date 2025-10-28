@@ -4,6 +4,8 @@ const path = require('path');
 const chalk = require('chalk');
 const { createSnapshot, prepareChroot, runInChroot, cleanupChroot, deploySnapshot } = require('../utils/btrfs');
 
+const PACMAN_PATH = '/usr/lib/LegendaryOS/pacman';
+
 module.exports = (pkg) => {
   console.log(chalk.green(`Installing package: ${pkg}`));
 
@@ -15,7 +17,7 @@ module.exports = (pkg) => {
     fs.mkdirSync(snapDir, { recursive: true });
     createSnapshot(snapRoot);
     prepareChroot(snapRoot);
-    runInChroot(snapRoot, `pacman -S --noconfirm ${pkg}`);
+    runInChroot(snapRoot, `${PACMAN_PATH} -S --noconfirm ${pkg}`);
     cleanupChroot(snapRoot);
     deploySnapshot(snapRoot);
     console.log(chalk.green('Installation complete. Reboot to apply changes.'));
